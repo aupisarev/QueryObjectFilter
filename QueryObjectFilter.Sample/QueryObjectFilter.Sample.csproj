@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-QueryObjectFilter.Sample-8430F2AF-05EE-4C9C-A472-7DEC1BFD9B42</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QueryObjectFilter.Conversion\QueryObjectFilter.Conversion.csproj" />
+    <ProjectReference Include="..\QueryObjectFilter.DI.MicrosoftDependencyInjection\QueryObjectFilter.DI.MicrosoftDependencyInjection.csproj" />
+  </ItemGroup>
+</Project>
