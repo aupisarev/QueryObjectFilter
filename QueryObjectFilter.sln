@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter", "QueryObjectFilter\QueryObjectFilter.csproj", "{7F9FD642-4080-44A7-8480-C4DCF6651B8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter", "src\QueryObjectFilter\QueryObjectFilter.csproj", "{7F9FD642-4080-44A7-8480-C4DCF6651B8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.Sample", "QueryObjectFilter.Sample\QueryObjectFilter.Sample.csproj", "{5CED2FB4-8620-48A7-B034-57CE3B6694BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.Sample", "src\QueryObjectFilter.Sample\QueryObjectFilter.Sample.csproj", "{5CED2FB4-8620-48A7-B034-57CE3B6694BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.Conversion", "QueryObjectFilter.Conversion\QueryObjectFilter.Conversion.csproj", "{67B2208F-4FC2-41CF-81AB-EFF3A11119F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.Conversion", "src\QueryObjectFilter.Conversion\QueryObjectFilter.Conversion.csproj", "{67B2208F-4FC2-41CF-81AB-EFF3A11119F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.DI.MicrosoftDependencyInjection", "QueryObjectFilter.DI.MicrosoftDependencyInjection\QueryObjectFilter.DI.MicrosoftDependencyInjection.csproj", "{1C7D6620-A288-4DE3-9C6A-6BA2F802B0D7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "srs", "srs", "{3A9B9E85-B110-4EC7-9540-301213EAC05A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryObjectFilter.DI.MicrosoftDependencyInjection", "src\QueryObjectFilter.DI.MicrosoftDependencyInjection\QueryObjectFilter.DI.MicrosoftDependencyInjection.csproj", "{1C7D6620-A288-4DE3-9C6A-6BA2F802B0D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QueryObjectFilter", "QueryObjectFilter", "{5F8BDFC3-8358-49EF-B357-5B989C366DCA}"
 EndProject
@@ -50,9 +48,6 @@ Global
 		{5CED2FB4-8620-48A7-B034-57CE3B6694BE} = {2719E452-CB9D-4E91-AB58-E077309FEBD8}
 		{67B2208F-4FC2-41CF-81AB-EFF3A11119F2} = {5F8BDFC3-8358-49EF-B357-5B989C366DCA}
 		{1C7D6620-A288-4DE3-9C6A-6BA2F802B0D7} = {5F8BDFC3-8358-49EF-B357-5B989C366DCA}
-		{5F8BDFC3-8358-49EF-B357-5B989C366DCA} = {3A9B9E85-B110-4EC7-9540-301213EAC05A}
-		{C5D3DB27-C99F-4469-912B-DF9ABE4FA65A} = {3A9B9E85-B110-4EC7-9540-301213EAC05A}
-		{2719E452-CB9D-4E91-AB58-E077309FEBD8} = {3A9B9E85-B110-4EC7-9540-301213EAC05A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B16F27D6-C3C6-4F5D-A989-AF5B6006EDEE}
