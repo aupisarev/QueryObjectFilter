@@ -22,6 +22,6 @@ namespace QueryObjectFilter.Conversion.ToSql
         /// <param name="filterCriteria">Критерии фильтрации</param>
         /// <param name="parameterName">Имя параметра, по которому будет построено условное выражение</param>
         /// <returns>Условное SQL-выражение</returns>
-        string GetSql<TSource, TFilter>(FilterCriteria<TSource, TFilter> filterCriteria, string parameterName);
+        string GetSql<TSource, TFilter>(FilterCriteria<TSource, TFilter> filterCriteria, string parameterName = null);
     }
 }

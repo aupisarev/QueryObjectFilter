@@ -22,19 +22,19 @@ namespace QueryObjectFilter.Sample
         {
             var users = new List<UserProjection>()
             {
-                new UserProjection(){ Id = 1, Email = "u1@user.com", LastName = "Ivanov", FirstName = "Ivan", MiddleName = "Ivanovich", ActiveDirectoryName = "u1", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u1"} }},
-                new UserProjection(){ Id = 2, Email = "u2@user.com", LastName = "Petrov", FirstName = "Petr", MiddleName = "Petrovich", ActiveDirectoryName = "u2", Logins = new(){new LoginData() { LoginProviderName = "IS2", LoginValue = "u2"} }},
-                new UserProjection(){ Id = 3, Email = "u3@user.com", LastName = "Sidorov", FirstName = "Sergey", MiddleName = "Sergeevich", ActiveDirectoryName = "u3", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u3"} }},
-                new UserProjection(){ Id = 4, Email = "u4@user.com", LastName = "Popov", FirstName = "Nikolay", MiddleName = "Nikolaevich", ActiveDirectoryName = "u4", Logins = new(){new LoginData() { LoginProviderName = "IS2", LoginValue = "u4"} }},
-                new UserProjection(){ Id = 5, Email = "u5@user.com", LastName = "Sokolov", FirstName = "Ivan", MiddleName = "Ivanovich", ActiveDirectoryName = "u5", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u5"} }},
+                new UserProjection(){ Id = 1, Email = "u1@user.com", LastName = "Ivanov", FirstName = "Ivan", MiddleName = "Ivanovich", ActiveDirectoryName = "u1", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u1"} }, Status = 1},
+                new UserProjection(){ Id = 2, Email = "u2@user.com", LastName = "Petrov", FirstName = "Petr", MiddleName = "Petrovich", ActiveDirectoryName = "u2", Logins = new(){new LoginData() { LoginProviderName = "IS2", LoginValue = "u2"} }, Status = 1},
+                new UserProjection(){ Id = 3, Email = "u3@user.com", LastName = "Sidorov", FirstName = "Sergey", MiddleName = "Sergeevich", ActiveDirectoryName = "u3", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u3"} }, Status = 2},
+                new UserProjection(){ Id = 4, Email = "u4@user.com", LastName = "Popov", FirstName = "Nikolay", MiddleName = "Nikolaevich", ActiveDirectoryName = "u4", Logins = new(){new LoginData() { LoginProviderName = "IS2", LoginValue = "u4"} }, Status = 1},
+                new UserProjection(){ Id = 5, Email = "u5@user.com", LastName = "Sokolov", FirstName = "Ivan", MiddleName = "Ivanovich", ActiveDirectoryName = "u5", Logins = new(){new LoginData() { LoginProviderName = "IS1", LoginValue = "u5"} }, Status = 3},
             };
 
             var query = new GetUserQuery()
             {
                 Id = 1,
                 Login = "u3",
-                LoginProvider = "IS1",
-                ActiveDirectoryNames = new List<string>() { "U1", "u2", "u3"}
+                LoginProviderName = "IS1",
+                Statuses = new List<int> { 1, 2, 3 }
             };
 
             var filter = new FilterCriteria<UserProjection, GetUserQuery>(query); //создание объекта фильтра
@@ -50,14 +50,14 @@ namespace QueryObjectFilter.Sample
                     .AddCriteria(u => u.ActiveDirectoryName, q => q.ActiveDirectoryName, CompareMethod.Equal)
                     .OrGroup()
                         .AddCriteria(r => r.Logins, login => login.LoginValue, q => q.Login, CompareMethod.Equal) //указывается коллекция и свойство элемента коллекции
-                        .AddCriteria(r => r.Logins, login => login.LoginProviderName, q => q.LoginProvider, CompareMethod.Equal) //на каждое свойство элемента коллекции создается отдельный критерий
+                        .AddCriteria(r => r.Logins, login => login.LoginProviderName, q => q.LoginProviderName, CompareMethod.Equal) //на каждое свойство элемента коллекции создается отдельный критерий
                         .CloseGroup()
-                    .AddCriteria(u => u.ActiveDirectoryName, q => q.ActiveDirectoryNames, CompareMethod.In); //критерий по списку значений
+                    .AddCriteria(u => u.Status, q => q.Statuses, CompareMethod.In); //критерий по списку значений
 
-            var expression = filterCriteriaExpressionConverter.GetExpression(filter, "x");
+            var expression = filterCriteriaExpressionConverter.GetExpression(filter);
             var expressionResult = users.AsQueryable().Where(expression).ToList();
 
-            var sql = filterCriteriaSqlConverter.GetSql(filter, "x");
+            var sql = filterCriteriaSqlConverter.GetSql(filter);
 
             return Task.CompletedTask;
         }

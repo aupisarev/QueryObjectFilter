@@ -22,6 +22,6 @@ namespace QueryObjectFilter.Conversion.ToExpression
         /// <param name="filterCriteria">Критерии фильтрации</param>
         /// <param name="parameterName">Имя параметра, по которому будет построено условное выражение</param>
         /// <returns>Условное Expression-выражение</returns>
-        Expression<Func<TSource, bool>> GetExpression<TSource, TFilter>(FilterCriteria<TSource, TFilter> filterCriteria, string parameterName);
+        Expression<Func<TSource, bool>> GetExpression<TSource, TFilter>(FilterCriteria<TSource, TFilter> filterCriteria, string parameterName = null);
     }
 }

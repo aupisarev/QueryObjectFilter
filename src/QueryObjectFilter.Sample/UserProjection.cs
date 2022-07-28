@@ -21,6 +21,8 @@ namespace QueryObjectFilter.Sample
         public string ActiveDirectoryName { get; set; }
 
         public List<LoginData> Logins { get; set; }
+
+        public int Status { get; set; }
     }
 
     public class LoginData

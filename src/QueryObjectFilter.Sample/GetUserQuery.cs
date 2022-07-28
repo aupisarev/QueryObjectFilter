@@ -18,12 +18,12 @@ namespace QueryObjectFilter.Sample
 
         public string Login { get; set; }
 
-        public string LoginProvider { get; set; }
+        public string LoginProviderName { get; set; }
+
+        public List<int> Statuses { get; set; } //может быть коллекция возможных значений
 
         public int? Skip { get; set; } //в запросе могут быть дополнительные данные, не относящиеся к фильтрации
 
         public int? Take { get; set; }
-
-        public List<string> ActiveDirectoryNames { get; set; }
     }
 }
