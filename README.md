@@ -4,15 +4,21 @@ Provides an abstraction for filtering query results, based on the [QueryObject](
 Use it in CQRS query handlers and QueryObject to filter query results by query, e.g. to simplify the logic of filtering UI datatable by certain fields.
 
 **QueryObjectFilter** - filtering criteria, used on the Application layer.
+
 **QueryObjectFilter.Conversion** - converters of filtering criteria into a certain format (converters are implemented in Expression and SQL), used on the Persistence layer.
+
 **QueryObjectFilter.DI.MicrosoftDependencyInjection** - extension for dependency injection.
 
 ### QueryObjectFiltration
 The main class to use - **FilterCriteria<TSource, TFilter>** - is a collection of grouped filter criteria.
+
 **TSource** - filtered object type (query result type).
+
 **TFilter** - filter type (query type).
 
+
 FilterCriteria contains a list of criteria groups. Each group is a list of criteria grouped by one logical operation (AND or OR). Groups can be nested within other groups, i.e. various logical combinations are realized.
+
 The criterion incdude the filtered object, the filtering value and the comparison method. Filtering by criteria compares the value of the specified property of the filtered type with the specified filter value by the specified method.
 
 If the filter value is null, then the criterion will not be created. I.e. if some fields are not assigned (null) in the query, will be no filtering by them.
@@ -103,7 +109,7 @@ filter
 // AND q.Statuses.Contains(u.Status)
 ```
 
-## Using converters
+### Using converters
 The main converter interface - **IFilterCriteriaConverter<T>** - contains the method
 ```csharp
 T Convert<TSource, TFilter>(FilterCriteria<TSource, TFilter> filterCriteria, string   parameterName = null)
